@@ -1,0 +1,79 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
+  }
+
+  html,
+  body {
+    font-family: var(--font-inter), "Inter", system-ui, -apple-system, sans-serif;
+    background-color: #f7f9fc;
+    color: #151823;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  *:focus-visible {
+    outline: 2px solid #1178d4;
+    outline-offset: 2px;
+  }
+
+  *:focus:not(:focus-visible) {
+    outline: none;
+  }
+}
+
+.klik-card-shadow {
+  filter: drop-shadow(0 2px 4px rgba(15, 23, 42, 0.05))
+    drop-shadow(0 1px 2px rgba(15, 23, 42, 0.04));
+}
+
+.klik-nav-shadow {
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.06);
+}
+
+.klik-press {
+  transition: transform 150ms var(--ease-out-quart), background-color 150ms var(--ease-out-quart),
+    border-color 150ms var(--ease-out-quart), color 150ms var(--ease-out-quart);
+}
+
+.klik-press:active {
+  transform: scale(0.98);
+}
+
+.klik-scrollbar::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+.klik-scrollbar::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+
+.klik-scrollbar::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 9999px;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
